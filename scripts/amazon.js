@@ -1,4 +1,5 @@
 import {cart} from '../data/cart.js';
+import {products} from '../data/products.js'
 
 let productsHTML = '';
 //Accumulator Pattern: It receives an accumulator element and the next element in the array and
