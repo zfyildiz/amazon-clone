@@ -5,7 +5,7 @@ products.forEach( (product) => {
     productsHTML +=
          `<div class="product-container">
           <div class="product-image-container">
-            <img class="product-image"
+            <img alt="" class="product-image"
               src="${product.image}">
           </div>
 
@@ -14,7 +14,7 @@ products.forEach( (product) => {
           </div>
 
           <div class="product-rating-container">
-            <img class="product-rating-stars"
+            <img alt="" class="product-rating-stars"
               src="images/ratings/rating-${product.rating.stars * 10}.png">
             <div class="product-rating-count link-primary">
               ${product.rating.count}
@@ -43,7 +43,7 @@ products.forEach( (product) => {
           <div class="product-spacer"></div>
 
           <div class="added-to-cart">
-            <img src="images/icons/checkmark.png">
+            <img alt="" src="images/icons/checkmark.png">
             Added
           </div>
 
@@ -79,6 +79,13 @@ document.querySelectorAll('.js-add-to-cart').forEach((button) => {
             })
         }
 
-        console.log(cart);
+        let cartQuantity=0;
+
+        cart.forEach((item) => {
+            cartQuantity += item.quantity;
+        })
+
+        document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+
     });
 });
