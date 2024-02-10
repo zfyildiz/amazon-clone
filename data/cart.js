@@ -1,4 +1,6 @@
-export const cart = [{
+import {products} from "./products.js";
+
+export let cart = [{
     productId: '3fdfe8d6-9a15-4979-b459-585b0d0545b9',
     quantity: 1
     },
@@ -26,4 +28,16 @@ export function addToCart(productId) {
             quantity:1
         })
     }
+}
+
+export function removeFromCart(productId) {
+    const newCart = [];
+
+    cart.forEach((cartItem) => {
+        if(cartItem.productId !== productId) {
+            newCart.push(cartItem);
+        }
+    });
+
+    cart = newCart;
 }
